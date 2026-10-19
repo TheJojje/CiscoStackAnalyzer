@@ -1,0 +1,13 @@
+# Genererade rapporter
+Reports/*.xlsx
+
+# Miljöspecifika SSH-hostnycklar (interna IP-adresser och fingeravtryck)
+hostkeys.csv
+hostkeys.json
+
+# Tredjepartsbinär - se putty/PLACE_PLINK_HERE.txt
+putty/plink.exe
+
+# Riktiga indatafiler (exempelfilerna *_example.* versioneras)
+switches.csv
+coreswitches.txt

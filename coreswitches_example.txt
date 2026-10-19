@@ -1,0 +1,7 @@
+# Cisco SwitchInventory - core/upstream-switchar
+# Ett kort hostname per rad (inte IP-adress)
+# Tomma rader och rader som börjar med # ignoreras
+SEUPPSW001
+SEUPPSW010
+SEUPPSW12
+SEUPPSW193
