@@ -151,6 +151,13 @@ Stackobjekt, portkanaler (`Po`), virtuella interface och applikationsportar (`Ap
 
 ## 6. Inloggning, temporära filer och hostnycklar
 
+**Hantering av lösenord i korthet:**
+
+1. Användarnamn och lösenord anges i en inloggningsruta (`Get-Credential`) varje gång du startar en scanning (menyval 2 eller 3). De lagras aldrig i en konfigurationsfil, i scriptet eller i projektmappen.
+2. Uppgifterna hålls bara i minnet under den pågående scanningen.
+3. När scanningen är klar, avbryts eller misslyckas rensas uppgifterna ur scriptets variabler. Nästa körning kräver ny inloggning.
+4. För varje SSH-anslutning skapas en tillfällig lösenordsfil som Plink läser (`-pwfile`). Filen ligger i en låst temporär mapp och raderas direkt när anslutningen är klar. Lösenordet skickas aldrig som kommandoradsargument.
+
 - **Ingen permanent `credentials.xml` behövs i v2.2.** Uppgifter anges på nytt för varje scanning och hålls som `PSCredential` under körningen.
 - Plink kräver en kortlivad lösenordsfil via `-pwfile`. Scriptet skapar en unik temporär mapp med begränsad NTFS-ACL, och försöker radera den när anslutningen avslutas, även vid fel.
 - Lösenordet ligger **tillfälligt i klartext på disk**. Radering innebär inte garanterad säker radering; använd bara detta upplägg om det accepteras av er säkerhetspolicy. Skydda användarkonton, tempkatalog och hostmaskin.
