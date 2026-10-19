@@ -6,6 +6,22 @@ SwitchInventory inventerar Cisco-/industriswitchar via SSH och exporterar en Exc
 
 > **Status:** Stödet är utvecklat med verkliga CLI-exempel för Catalyst 2960X, 9300, 9500, IE-3000, IE-3300 och Rockwell/Stratix 1783. Det finns också preliminärt stöd för Catalyst 3560 och 3850. Resultat bör kontrolleras mot ett urval enheter innan bred användning.
 
+## Switchar som stöds
+
+| Serie | Modeller (exempel) | Status |
+|---|---|---|
+| Catalyst 2960X | `WS-C2960X-8/12/24/48...` | Verifierad mot verkliga CLI-exempel |
+| Catalyst 9200 | `C9200-8/12/24/48...` | Stöd för portantal, preliminärt för 9200 |
+| Catalyst 9300 | `C9300-24/48...` (stackar) | Verifierad mot verkliga CLI-exempel |
+| Catalyst 9500 | `C9500-8/12/24/32/48...` | Verifierad mot verkliga CLI-exempel |
+| Catalyst 3560 | `WS-C3560-8/12/24/48...` | Preliminärt stöd |
+| Catalyst 3850 | `WS-C3850-12/24/48...` | Preliminärt stöd |
+| Cisco IE-3000 | `IE-3000-...` | Verifierad mot verkliga CLI-exempel |
+| Cisco IE-3300 | `IE-3300-8T2S...` | Verifierad mot verkliga CLI-exempel |
+| Rockwell/Stratix | `1783-...` (inkl. expansionsmoduler) | Verifierad mot verkliga CLI-exempel |
+
+Övriga Cisco IOS/IOS-XE-switchar kan fungera, men då bestäms portantalet utifrån observerade fysiska portar i `show interfaces status` och resultatet bör kontrolleras manuellt. Kravet är att enheten svarar på `show version`, `show inventory`, `show interfaces status` och `show cdp neighbors detail` över SSH.
+
 ## 1. Filstruktur
 
 ```text
